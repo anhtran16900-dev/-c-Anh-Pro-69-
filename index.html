@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="vi" class="h-full bg-slate-950 text-slate-100">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Đức Anh Advertisement PRO - Bóc Tách Vật Tư Quảng Cáo & Báo Giá Chính Xác</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#f0f9ff',
+                            500: '#06b6d4',
+                            600: '#0891b2',
+                            700: '#0e7490',
+                            900: '#164e63',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        ::-webkit-scrollbar { width: 6px; height: 6px; }
+        ::-webkit-scrollbar-track { background: #0f172a; }
+        ::-webkit-scrollbar-thumb { background: #334155; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #475569; }
+        .nav-btn.active {
+            background-color: #0891b2 !important;
+            color: #ffffff !important;
+            border-color: #06b6d4 !important;
+        }
+        @media print {
+            body * { visibility: hidden; }
+            #printableArea, #printableArea * { visibility: visible; }
+            #printableArea { position: absolute; left: 0; top: 0; width: 100%; }
+        }
+    </style>
+</head>
+<body class="h-full font-sans antialiased flex flex-col bg-slate-950 text-slate-100 selection:bg-cyan-500 selection:text-white">
+
+    <!-- Header / Top Navigation Bar -->
+    <header class="bg-slate-900/95 backdrop-blur-md border-b border-slate-800 sticky top-0 z-40 px-4 py-3">
+        <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-3">
+            <div class="flex items-center space-x-3">
+                <div class="bg-gradient-to-tr from-cyan-500 via-blue-600 to-indigo-600 p-2.5 rounded-xl shadow-lg shadow-cyan-500/20">
+                    <i class="fa-solid fa-layer-group text-xl text-white"></i>
+                </div>
+                <div>
+                    <h1 class="text-lg sm:text-xl font-extrabold tracking-tight text-white flex items-center gap-2">
+                        Đức Anh <span class="text-cyan-400">Advertisement PRO</span>
+                        <span class="text-[10px] sm:text-xs font-semibold px-2 py-0.5 rounded bg-cyan-500/10 text-cyan-400 border border-cyan-500/30 flex items-center gap-1">
+                            <i class="fa-solid fa-bolt text-xs"></i> Realtime AI
+                        </span>
+                    </h1>
+                    <p class="text-xs text-slate-400 hidden sm:block">Hệ thống bóc tách vật tư kỹ thuật & báo giá chuyên nghiệp ngành Quảng Cáo</p>
+                </div>
+            </div>
+
+            <!-- Navigation Tabs Buttons -->
+            <div class="flex items-center space-x-1 sm:space-x-2 overflow-x-auto py-1 max-w-full">
+                <button id="nav-estimator" onclick="switchTab('estimator')" class="nav-btn active px-3 py-1.5 sm:py-2 rounded-xl text-xs sm:text-sm font-medium transition flex items-center gap-1.5 bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 whitespace-nowrap">
+                    <i class="fa-solid fa-calculator text-cyan-400"></i>
+                    <span>Bóc Tách Realtime</span>
+                </button>
+                <button id="nav-ai_bot" onclick="switchTab('ai_bot')" class="nav-btn px-3 py-1.5 sm:py-2 rounded-xl text-xs sm:text-sm font-medium transition flex items-center gap-1.5 bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 relative whitespace-nowrap">
+                    <i class="fa-solid fa-robot text-pink-400"></i>
+                    <span>Trợ Lý AI</span>
+                    <span class="flex h-2 w-2 absolute -top-0.5 -right-0.5">
+                      <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-pink-400 opacity-75"></span>
+                      <span class="relative inline-flex rounded-full h-2 w-2 bg-pink-500"></span>
+                    </span>
+                </button>
+                <button id="nav-material_db" onclick="switchTab('material_db')" class="nav-btn px-3 py-1.5 sm:py-2 rounded-xl text-xs sm:text-sm font-medium transition flex items-center gap-1.5 bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 whitespace-nowrap">
+                    <i class="fa-solid fa-boxes-stacked text-purple-400"></i>
+                    <span>Kho Vật Tư</span>
+                </button>
+                <button id="nav-projects" onclick="switchTab('projects')" class="nav-btn px-3 py-1.5 sm:py-2 rounded-xl text-xs sm:text-sm font-medium transition flex items-center gap-1.5 bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 whitespace-nowrap">
+                    <i class="fa-solid fa-folder-tree text-amber-400"></i>
+                    <span>Hồ Sơ Dự Toán</span>
+                </button>
+                <button id="nav-academy" onclick="switchTab('academy')" class="nav-btn px-3 py-1.5 sm:py-2 rounded-xl text-xs sm:text-sm font-medium transition flex items-center gap-1.5 bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 whitespace-nowrap">
+                    <i class="fa-solid fa-graduation-cap text-emerald-400"></i>
+                    <span>Đào Tạo Máy</span>
+                </button>
+                <button onclick="openSettingsModal()" class="px-3 py-1.5 sm:py-2 rounded-xl text-xs sm:text-sm bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700" title="Cấu hình đơn giá phôi xưởng">
+                    <i class="fa-solid fa-gear"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <main class="flex-1 max-w-7xl w-full mx-auto p-4 sm:p-6 overflow-y-auto">
+
+        <!-- TAB 1: BÓC TÁCH REALTIME -->
+        <section id="tab-estimator" class="tab-content space-y-6">
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                
+                <!-- Left Input Form -->
+                <div class="lg:col-span-2 space-y-6">
+                    <div class="bg-slate-900 border border-slate-800 rounded-2xl p-5 sm:p-6 shadow-xl">
+                        <div class="flex items-center justify-between border-b border-slate-800 pb-4 mb-5">
+                            <h2 class="text-lg font-bold text-white flex items-center gap-2">
+                                <i class="fa-solid fa-sliders text-cyan-400"></i>
+                                Thông Số Hạng Mục Quảng Cáo
+                            </h2>
+                            <span class="text-xs text-slate-400 bg-slate-950 px-3 py-1 rounded-full border border-slate-800">Bóc tách tự động realtime</span>
+                        </div>
+
+                        <form id="calcForm" onsubmit="event.preventDefault(); calculateEstimates();" class="space-y-4">
+                            <!-- Categorization -->
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-xs font-semibold text-cyan-400 uppercase tracking-wider mb-2">
+                                        <i class="fa-solid fa-layer-group mr-1"></i> 1. Phân Loại Hạng Mục Quảng Cáo
+                                    </label>
+                                    <select id="itemType" onchange="toggleFormFields(); updatePresetItemNames(); calculateEstimates();" class="w-full bg-slate-950 border border-cyan-500/40 rounded-xl px-3.5 py-2.5 text-slate-100 focus:outline-none focus:border-cyan-500 text-sm font-medium">
+                                        <option value="hiflex">MỤC 1: Biển Bạt In KTS & UV (Hiflex / Đế Xám / 3M UV)</option>
+                                        <option value="tarpaulin_ad">MỤC 2: Bạt Che Sự Kiện & Biển Bảng (Xanh Cam 2 Da / 3 Sọc)</option>
+                                        <option value="decal">MỤC 3: In Decal Quảng Cáo & Tem Bế (Decal Sữa / Trong / Lưới / 3M)</option>
+                                        <option value="alu_letter">MỤC 4: Biển Alu Ốp Chữ Nổi & LED (Alcorest / Inox Laser / LED)</option>
+                                        <option value="cnc_laser">MỤC 5: Hộp Đèn Hút Nổi, Vách Kính Mica & CNC/Laser (FS 3mm)</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-semibold text-slate-400 uppercase tracking-wider mb-2">
+                                        <i class="fa-solid fa-pen-to-square mr-1"></i> 2. Tên Hạng Mục / Ghi Chú
+                                    </label>
+                                    <input type="text" id="itemName" value="Biển Bạt In UV Không Gân Khung Sắt Kẽm" placeholder="VD: Biển hiệu Showroom" class="w-full bg-slate-950 border border-slate-700 rounded-xl px-3.5 py-2.5 text-slate-100 focus:outline-none focus:border-cyan-500 text-sm">
+                                </div>
+                            </div>
+
+                            <!-- Quick preset items -->
+                            <div>
+                                <span class="text-[11px] text-slate-400 mb-1.5 block">⚡ Gợi ý chọn nhanh hạng mục thực tế:</span>
+                                <div id="presetItemNames" class="flex flex-wrap gap-2 text-xs"></div>
+                            </div>
+
+                            <!-- Dimensions & Wastage -->
+                            <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-2">
+                                <div>
+                                    <label class="block text-xs font-semibold text-slate-400 uppercase tracking-wider mb-2">Ngang (m)</label>
+                                    <input type="number" id="width" value="6.0" step="0.01" oninput="calculateEstimates()" class="w-full bg-slate-950 border border-slate-700 rounded-xl px-3 py-2 text-slate-100 focus:outline-none focus:border-cyan-500 font-mono text-sm">
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-semibold text-slate-400 uppercase tracking-wider mb-2">Cao (m)</label>
+                                    <input type="number" id="height" value="2.4" step="0.01" oninput="calculateEstimates()" class="w-full bg-slate-950 border border-slate-700 rounded-xl px-3 py-2 text-slate-100 focus:outline-none focus:border-cyan-500 font-mono text-sm">
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-semibold text-slate-400 uppercase tracking-wider mb-2">Số Lượng</label>
+                                    <input type="number" id="quantity" value="1" min="1" oninput="calculateEstimates()" class="w-full bg-slate-950 border border-slate-700 rounded-xl px-3 py-2 text-slate-100 focus:outline-none focus:border-cyan-500 font-mono text-sm">
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-semibold text-slate-400 uppercase tracking-wider mb-2">% Phôi Hao Hụt</label>
+                                    <input type="number" id="marginWastage" value="8" min="0" max="35" oninput="calculateEstimates()" class="w-full bg-slate-950 border border-slate-700 rounded-xl px-3 py-2 text-slate-100 focus:outline-none focus:border-cyan-500 font-mono text-sm">
+                                </div>
+                            </div>
+
+                            <!-- Dynamic category sub-options -->
+                            <div id="dynamicFields" class="p-4 bg-slate-950/70 rounded-xl border border-slate-800 space-y-4"></div>
+
+                            <!-- Work & Margin Settings -->
+                            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-2">
+                                <div>
+                                    <label class="block text-xs font-semibold text-slate-400 mb-1">Thi Công Lắp Đặt</label>
+                                    <select id="laborComplexity" onchange="calculateEstimates()" class="w-full bg-slate-950 border border-slate-700 rounded-xl px-3 py-2 text-xs text-slate-100">
+                                        <option value="easy">Đơn giản (Dưới 3m, thi công đất)</option>
+                                        <option value="medium" selected>Trung bình (Tầng 1-2, có giàn giáo)</option>
+                                        <option value="hard">Phức tạp (Đu dây, cẩu xe cao)</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-semibold text-slate-400 mb-1">% Lợi Nhuận Kỳ Vọng</label>
+                                    <input type="number" id="profitMargin" value="35" step="1" min="0" oninput="calculateEstimates()" class="w-full bg-slate-950 border border-slate-700 rounded-xl px-3 py-2 text-xs text-slate-100 font-mono">
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-semibold text-slate-400 mb-1">Vận Chuyển & Phụ Tùng (đ)</label>
+                                    <input type="number" id="shippingFee" value="350000" step="50000" oninput="calculateEstimates()" class="w-full bg-slate-950 border border-slate-700 rounded-xl px-3 py-2 text-xs text-slate-100 font-mono">
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+
+                    <!-- Material Table -->
+                    <div class="bg-slate-900 border border-slate-800 rounded-2xl p-5 sm:p-6 shadow-xl space-y-4">
+                        <div class="flex items-center justify-between border-b border-slate-800 pb-3">
+                            <h3 class="text-base font-bold text-white flex items-center gap-2">
+                                <i class="fa-solid fa-list-check text-cyan-400"></i> Bóc Tách Chi Tiết Phôi & Khối Lượng Vật Tư
+                            </h3>
+                            <span id="totalAreaBadge" class="text-xs font-mono text-cyan-400 font-semibold">0 m²</span>
+                        </div>
+
+                        <div class="overflow-x-auto">
+                            <table class="w-full text-left text-xs sm:text-sm">
+                                <thead>
+                                    <tr class="bg-slate-950 text-slate-400 uppercase tracking-wider border-b border-slate-800">
+                                        <th class="py-2.5 px-2">Vật Tư / Hạng Mục</th>
+                                        <th class="py-2.5 px-2 text-center">ĐVT</th>
+                                        <th class="py-2.5 px-2 text-right">Khối Lượng</th>
+                                        <th class="py-2.5 px-2 text-right">Đơn Giá Nhập</th>
+                                        <th class="py-2.5 px-2 text-right">Thành Tiền (VND)</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="breakdownTableBody" class="divide-y divide-slate-800/60 font-mono"></tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Cost Summary Panel -->
+                <div class="space-y-6">
+                    <div class="bg-gradient-to-b from-slate-900 via-slate-900 to-slate-950 border border-cyan-500/30 rounded-2xl p-6 shadow-2xl relative overflow-hidden">
+                        <div class="absolute -right-8 -top-8 w-32 h-32 bg-cyan-500/10 rounded-full blur-2xl"></div>
+
+                        <h3 class="text-base font-bold text-slate-300 uppercase tracking-wider mb-4 border-b border-slate-800 pb-3">Tổng Hợp Báo Giá Realtime</h3>
+
+                        <div class="space-y-4 font-mono">
+                            <div class="flex justify-between items-center text-xs text-slate-400">
+                                <span>Tổng Giá Vốn (Chi Phí):</span>
+                                <span id="totalCostDisplay" class="text-slate-200 font-bold">0 VNĐ</span>
+                            </div>
+                            <div class="flex justify-between items-center text-xs text-slate-400">
+                                <span>Lợi Nhuận Kỳ Vọng:</span>
+                                <span id="profitDisplay" class="text-emerald-400 font-bold">+0 VNĐ</span>
+                            </div>
+                            
+                            <div class="pt-4 border-t border-slate-800">
+                                <span class="text-xs text-slate-400 uppercase tracking-wider block mb-1">Tổng Giá Xuất Cho Khách</span>
+                                <p id="finalPriceDisplay" class="text-3xl font-extrabold text-cyan-400 tracking-tight">0 VNĐ</p>
+                                <p id="unitPricePerM2" class="text-xs text-slate-400 mt-1 font-sans">Đơn giá / m²: <span class="text-slate-200 font-bold font-mono">0 VNĐ</span></p>
+                            </div>
+                        </div>
+
+                        <div class="mt-6 space-y-3">
+                            <button onclick="saveCurrentItemToProject()" class="w-full py-3 bg-gradient-to-r from-cyan-600 to-blue-600 hover:from-cyan-500 hover:to-blue-500 text-white font-bold text-xs rounded-xl shadow-lg transition flex items-center justify-center gap-2">
+                                <i class="fa-solid fa-plus-circle"></i> Thêm Vào Hồ Sơ Dự Toán
+                            </button>
+                            <button onclick="exportSingleQuotePDF()" class="w-full py-2.5 bg-slate-800 hover:bg-slate-700 text-slate-200 font-semibold text-xs rounded-xl border border-slate-700 transition flex items-center justify-center gap-2">
+                                <i class="fa-solid fa-file-pdf text-red-400"></i> Xuất Báo Giá (PDF/In)
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- AI Smart Recommendation Box -->
+                    <div class="bg-slate-900 border border-slate-800 rounded-2xl p-5 shadow-xl space-y-3">
+                        <h4 class="text-xs font-bold text-cyan-400 uppercase tracking-wider flex items-center gap-2">
+                            <i class="fa-solid fa-brain"></i> AI Đề Xuất Kết Cấu Kỹ Thuật
+                        </h4>
+                        <div id="aiSuggestions" class="space-y-2 text-xs text-slate-300"></div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- TAB 2: AI BOT -->
+        <section id="tab-ai_bot" class="tab-content hidden space-y-6">
+            <div class="grid grid-cols-1 lg:grid-cols-4 gap-6">
+                <!-- Prompts -->
+                <div class="space-y-4">
+                    <div class="bg-slate-900 border border-slate-800 rounded-2xl p-4 shadow-xl">
+                        <h3 class="text-sm font-bold text-white mb-3 flex items-center gap-2">
+                            <i class="fa-solid fa-wand-magic-sparkles text-pink-400"></i> Gợi Ý Câu Hỏi Fast-AI
+                        </h3>
+                        <div class="s
